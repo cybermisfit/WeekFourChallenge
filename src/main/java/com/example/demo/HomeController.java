@@ -39,10 +39,5 @@ public class HomeController {
         model.addAttribute("transaction", transactionRepository.findById(id).get());
         return "show";
     }
-//    @RequestMapping("/update/{id}")
-//    public String updateTransaction(@PathVariable("id") long id, Model model){
-//        model.addAttribute("transaction", transactionRepository.findById(id).get());
-//        return "form";
-//    }
 
 }
