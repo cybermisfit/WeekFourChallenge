@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8" />
+    <title>Welcome/Transactions</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+<h3>Welcome to Java Spring Bank</h3>
+
+<a href="/add">Complete a Transaction</a>
+<br/>
+<br/>
+
+
+<table>
+    <th>Transaction History</th>
+    <tr>
+        <th>Account Number</th>
+        <th>Action</th>
+        <th>Amount</th>
+        <th>Reason</th>
+    </tr>
+    <tr th:each="transaction : ${transactions}">
+        <td th:text="${transaction.acctnum}"></td>
+        <td th:text="${transaction.action}"></td>
+        <td th:text="${transaction.amount}"></td>
+        <td th:text="${transaction.reason}"></td>
+        <td>
+            <!--<a th:href="@{/update/{id}(id=${transaction.id})}">Update</a>-->
+            <a th:href="@{/detail/{id}(id=${transaction.id})}">Details</a>
+
+        </td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>

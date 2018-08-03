@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Bank of Java Spring</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <style>
+        input[type=text] {
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+<body>
+<h3>BANK OF JAVA SPRING</h3>
+<br/>
+
+<form action="#" th:action="@{/process}" th:object="${transaction}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <p>ACCOUNT NUMBER: <input type="text" th:field="*{acctnum}"/></p>
+    <p></p>
+    <!--<p>ACTION (Deposit/Withdrawal): <input type="text" th:field="*{action}"/></p>-->
+    <input type="radio" name="choice" th:field="*{action}" value="Deposit" /> DEPOSIT <br/>
+    <input type="radio" name="choice" th:field="*{action}" value="Withdrawal"/> WITHDRAWAL <br/>
+
+
+    <p>AMOUNT: <input type="text" th:field="*{amount}"/></p>
+    <p></p>
+    <p>REASON : <input type="text" th:field="*{reason}"/> </p>
+    <p></p>
+
+
+
+    <input type="submit" value="Submit"/>
+</form>
+
+</body>
+</html>
