@@ -14,7 +14,7 @@ public class Transaction {
 
     private int acctnum;
     private String action;
-    private double amount = 0.00;
+    private double amount;
     private String reason;
 
 
